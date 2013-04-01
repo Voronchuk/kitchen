@@ -1,0 +1,14 @@
+LawerAdminApp.view():  onColumnMove ct.view.store=
+{
+     [events]:{_ _ _ 
+     [data]:{_ _ _ 
+     [groupers]:{_ _ _ 
+     [removed]:{} 
+     [model]: <function>function (){return this.constructor.apply(this,arguments)}
+     [modelDefaults]:{} 
+     [proxy]:{_ _ _ 
+     [sorters]:{_ _ _ 
+     [filters]:{_ _ _ 
+     [loading]:false
+     [totalCount]: <number>5
+     [eventsSuspended]:false}  Client.js:65
