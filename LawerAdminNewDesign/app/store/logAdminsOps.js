@@ -1,0 +1,25 @@
+Ext.define('LawerAdminApp.store.logAdminsOps', {
+    extend: 'Ext.data.Store',
+    storeId: 'logAdminsOps',
+    model: 'LawerAdminApp.model.AdminOp',
+    data: [
+        { time: Ext.Date.format(new Date(), "d, F   Y H:i:s"), nick: "mainadmin", op: "Logging", state: "beginned"                    },
+        { time: Ext.Date.format(new Date(), "d, F   Y H:i:s"), nick: "mainadmin", op: "Logging", state: "failed"                      },
+        { time: Ext.Date.format(new Date(), "d, F   Y H:i:s"), nick: "mainadmin", op: "Logging", state: "beginned"                    },
+        { time: Ext.Date.format(new Date(), "d, F   Y H:i:s"), nick: "mainadmin", op: "Logging", state: "successfully ended"          },
+        { time: Ext.Date.format(new Date(), "d, F   Y H:i:s"), nick: "mainadmin", op: "Changing Password", state: "beginned"                    },
+        { time: Ext.Date.format(new Date(), "d, F   Y H:i:s"), nick: "mainadmin", op: "Changing Password", state: "successfully ended"          },
+        { time: Ext.Date.format(new Date(), "d, F   Y H:i:s"), nick: "offadmin", op: "Registering", state: "beginned"                    },
+        { time: Ext.Date.format(new Date(), "d, F   Y H:i:s"), nick: "offadmin", op: "Registering", state: "successfully ended"          },
+        { time: Ext.Date.format(new Date(), "d, F   Y H:i:s"), nick: "offadmin", op: "Logging", state: "beginned"                    },
+        { time: Ext.Date.format(new Date(), "d, F   Y H:i:s"), nick: "offadmin", op: "Logging", state: "failed - Time Limit Exceeded"},
+        { time: Ext.Date.format(new Date(), "d, F   Y H:i:s"), nick: "offadmin", op: "Logging", state: "beginned"                    },
+        { time: Ext.Date.format(new Date(), "d, F   Y H:i:s"), nick: "offadmin", op: "Logging", state: "successfully ended"          },
+        { time: Ext.Date.format(new Date(), "d, F   Y H:i:s"), nick: "miller", op: "Registering", state: "beginned"                    },
+        { time: Ext.Date.format(new Date(), "d, F   Y H:i:s"), nick: "miller", op: "Registering", state: "successfully ended"          },
+        { time: Ext.Date.format(new Date(), "d, F   Y H:i:s"), nick: "offadmin", op: "Clients", state: "changed"                     },
+        { time: Ext.Date.format(new Date(), "d, F   Y H:i:s"), nick: "offadmin", op: "Leaving", state: "ok"                          },
+        { time: Ext.Date.format(new Date(), "d, F   Y H:i:s"), nick: "miller", op: "Logging", state: "beginned"                    },
+        { time: Ext.Date.format(new Date(), "d, F   Y H:i:s"), nick: "miller", op: "Logging", state: "successfully ended"          },
+    ]
+});

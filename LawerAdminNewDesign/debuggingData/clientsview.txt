@@ -1,0 +1,45 @@
+centerTabPanel Clients app.js:731
+LawerAdminApp.view():  onColumnMove ct.view=
+{
+     [initialConfig]:{_ _ _ 
+     [deferInitialRefresh]:true
+     [xtype]:gridview
+     [store]:{_ _ _ 
+     [headerCt]:{_ _ _ 
+     [selModel]:{_ _ _ 
+     [features]:{} 
+     [panel]:{_ _ _ 
+     [invalidateScrollerOnRefresh]:true
+     [events]:{_ _ _ 
+     [id]:gridview-1049
+     [mons]:{} 
+     [additionalCls]:{_ _ _ 
+     [renderData]:{} 
+     [renderSelectors]:{} 
+     [scrollState]:{_ _ _ 
+     [featuresMC]:{_ _ _ 
+     [tpl]:{_ _ _ 
+     [all]:{_ _ _ 
+     [managedListeners]:{_ _ _ 
+     [stateId]:null
+     [stateEvents]:{} 
+     [loader]:null
+     [ownerCt]:{_ _ _ 
+     [container]:{_ _ _ 
+     [ui]:default
+     [componentCls]:x-grid-view
+     [el]:{_ _ _ 
+     [rendered]:true
+     [loadMask]:{_ _ _ 
+     [componentLayout]:{_ _ _ 
+     [viewReady]:true
+     [layoutManagedHeight]: <number>0
+     [layoutManagedWidth]: <number>0
+     [margins]:{_ _ _ 
+     [hiddenAncestor]:false
+     [frameSize]:{_ _ _ 
+     [preLayoutSize]:{_ _ _ 
+     [needsLayout]:false
+     [componentLayoutCounter]: <number>5
+     [stateTask]:{_ _ _ 
+     [hasSkippedEmptyText]:true}  Client.js:65
