@@ -23,6 +23,7 @@ Ext.define('LawerAdminApp.controller.Lawer', {
     onLawerSelectionChanged: function ()
     {
         var filterDeal=Ext.getStore('LawerAdminApp.store.Deal');
+        var filterLawerService = Ext.getStore('LawerAdminApp.store.LawerService');
         var clientDetails = Ext.getStore('LawerDetailsClient');
         var dealDetails = Ext.getStore('LawerDetailsDeal');
         var servicesTree = Ext.getStore('LawerServicesDetails');
@@ -46,6 +47,7 @@ Ext.define('LawerAdminApp.controller.Lawer', {
         lawerDetails.setTitle('Details of ' + lawerFirstName + ' ' + lawerLastName);
         this.setFilterAndLoadDataForStore('lawer_id', lawerId, clientDetails, filterDeal, 'client_id');
         this.setFilterAndLoadDataForStore('lawer_id', lawerId, dealDetails, filterDeal, 'id');
-        this.filterServicesTreeStoreUsingDealStoreBy(servicesTree, 'lawer_id', lawerId);
+        this.filterServicesTreeStoreUsingStoreBy(servicesTree, filterDeal, 'lawer_id', lawerId);
+        this.filterServicesTreeStoreUsingStoreBy(allServicesTree, filterLawerService, 'lawer_id', lawerId);
     }
 });

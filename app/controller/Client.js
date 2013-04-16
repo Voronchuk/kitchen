@@ -45,7 +45,7 @@ Ext.define('LawerAdminApp.controller.Client', {
         clientDetails.setTitle('Details of ' + clientFirstName + ' ' + clientLastName);
         this.setFilterAndLoadDataForStore('client_id', clientId, lawerDetails, filterDeal, 'lawer_id');
         this.setFilterAndLoadDataForStore('client_id', clientId, dealDetails, filterDeal, 'id');
-        this.filterServicesTreeStoreUsingDealStoreBy(servicesTree, 'client_id', clientId);
+        this.filterServicesTreeStoreUsingStoreBy(servicesTree, filterDeal, 'client_id', clientId);
     }
 
 });

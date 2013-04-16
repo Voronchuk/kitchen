@@ -144,64 +144,6 @@ copyFilteredByIdsJSONObj = function (dupeObj, IdValues)
     return retObj;
 }
 
-//
-//var JSONObjIdValues = [];
-//
-//function recursiveTraceAndGetAllIdsFromJSONObj(JSONObj)
-//{
-//    var ind;
-//    var objInd;
-//    var child;
-//    if (typeof(JSONObj) == 'string')
-//    {
-//        return;
-//    }
-//    if (typeof(JSONObj) == 'number')
-//    {
-//        return;
-//    }
-//    if (typeof(JSONObj) == 'boolean')
-//    {
-//        return;
-//    }
-//    if (!JSONObj)
-//    {
-//        return;
-//    }
-//    if (typeof(JSONObj) == 'object')
-//    {
-//        if (typeof(JSONObj.length) != 'undefined')
-//        {
-//            for (ind = 0; ind < JSONObj.length; ++ind)
-//            {
-//                child = JSONObj[ind];
-//                recursiveTraceAndGetAllIdsFromJSONObj(child);
-//            }
-//            return;
-//        }
-//        for (objInd in JSONObj)
-//        {
-//            if (!JSONObj.hasOwnProperty(objInd))
-//            {
-//                continue;
-//            }
-//            child = JSONObj[objInd];
-//            if (objInd == 'id')
-//            {
-//                JSONObjIdValues.push(child);
-//            }
-//            recursiveTraceAndGetAllIdsFromJSONObj(child);
-//        }
-//    }
-//    return;
-//}
-//
-//function getAllIdsFromJSONObj(JSONObj)
-//{
-//    JSONObjIdValues = [];
-//    recursiveTraceAndGetAllIdsFromJSONObj(JSONObj);
-//    return JSONObjIdValues.slice();
-//}
 
 copyJSONObj = function (dupeObj)
 {
@@ -250,6 +192,7 @@ copyJSONObj = function (dupeObj)
     }
     return retObj;
 }
+
 
 myServicesTree0 = {
     'id': 'root',
@@ -407,10 +350,5 @@ clearAndInitAllServiceTreeStores = function ()
     myClientServicesTree = copyJSONObj(myServicesTree0);
     myDealServicesTree = copyJSONObj(myServicesTree0);
 }
-
-//getAllIdsFromJSONObj(myServicesTree0);
-//
-//JSONObjIdValues.pop()
-//JSONObjIdValues.splice(1, 10);
 
 clearAndInitAllServiceTreeStores();

@@ -21,7 +21,6 @@ Ext.define('LawerAdminApp.controller.FilterFunctionsForLinkedStores', {
             store.clearFilter();
             store.load();
         }
-
         clearAndInitAllServiceTreeStores();
     },
 
@@ -59,38 +58,35 @@ Ext.define('LawerAdminApp.controller.FilterFunctionsForLinkedStores', {
         serviceDetails.clearFilter();
         var filterValueForLawerStore = -1;
         var filterValueForClientStore = -1;
-        var filterValueForServiceStore = -1;
         var dealStore = Ext.getStore('LawerAdminApp.store.Deal');
         var r = dealStore.getById(Id);
         if (r)
         {
             filterValueForLawerStore = r.data.lawer_id;
             filterValueForClientStore = r.data.client_id;
-            filterValueForServiceStore = r.data.service_id;
         }
         lawerDetails.filter({property: 'id', value: filterValueForLawerStore, exactMatch: true});
         lawerDetails.load();
         clientDetails.filter({property: 'id', value: filterValueForClientStore, exactMatch: true});
         clientDetails.load();
-        serviceDetails.filter({property: 'id', value: filterValueForServiceStore, exactMatch: true});
-//        serviceDetails.load();
     },
 
-    filterServicesTreeStoreUsingDealStoreBy: function (treeStore, IdName, idValue)
+
+    filterServicesTreeStoreUsingStoreBy: function (treeStore, FilterStore, IdName, idValue)
     {
         var meMixin = this;
-        idValues = meMixin.getServicesValuesFromDealStoreBy(IdName, idValue);
+        idValues = meMixin.getServicesValuesFromStoreBy(FilterStore, IdName, idValue);
         var root = treeStore.getRootNode();
         var newRoot = copyFilteredByIdsJSONObj(myServicesTree0,idValues);
         treeStore.setRootNode(newRoot);
     },
 
-    getServicesValuesFromDealStoreBy: function (IdName, idValue)
+    getServicesValuesFromStoreBy: function (FilterStore, IdName, idValue)
     {
-        var dealStore = Ext.getStore('LawerAdminApp.store.Deal');
+        var filter = Ext.getStore(FilterStore);
         var Ids = [];
-        dealStore.clearFilter();
-        dealStore.filterBy(function (record)
+        filter.clearFilter();
+        filter.filterBy(function (record)
         {
             var isEq = (record.data[IdName] == idValue);
             if (isEq)
@@ -99,59 +95,8 @@ Ext.define('LawerAdminApp.controller.FilterFunctionsForLinkedStores', {
             }
             return isEq;
         });
+        filter.clearFilter();
         return Ids;
-    },
-
-    traceTreeAndFilterPathsToLeafNodesByIdValues: function (currentNode)
-    {
-        var childNodes ;
-        var leaf ;
-        var found = false;
-
-        if (!currentNode)
-        {
-            return found;
-        }
-        var data = currentNode.data;
-        if (!data)
-        {
-            return  found;
-        }
-        childNodes = currentNode.childNodes;
-        leaf = (data.leaf);
-        if (childNodes.length == 0 || leaf)
-        {
-            if (leaf)
-            {
-                found = (idValues.indexOf(data.id) > -1);
-                if (found)
-                {
-                    currentNode.expand();
-                    return found;
-                }
-                else
-                {
-                    currentNode.data = null;
-                    return found;
-                }
-            }
-            return found;
-        }
-        for (var i in childNodes)
-        {
-            found |= this.traceTreeAndFilterPathsToLeafNodesByIdValues(childNodes[i]);
-        }
-        if (found)
-        {
-            currentNode.expand();
-        }
-        else
-        {
-            currentNode.data = null;
-            childNodes.splice(0,childNodes.length);
-        }
-        return found;
     }
-
 });
 

@@ -38,6 +38,11 @@ Ext.define('LawerAdminApp.controller.Service', {
         var selectedData = lastSelected.data;
         var serviceName = selectedData.name;
         var serviceDetails = Ext.getCmp('ServiceDetails');
+        if(selectedData.leaf)
+        {
+            serviceDetails.setDisabled(false);
+        }
+        else serviceDetails.setDisabled(true);
         serviceDetails.setTitle('Details of ' + serviceName);
         this.setFilterAndLoadDataForStore('service_id', serviceId, clientDetails, filterDeal, 'client_id');
         this.setFilterAndLoadDataForStore('service_id', serviceId, dealDetails, filterDeal, 'id');

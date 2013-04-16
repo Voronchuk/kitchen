@@ -22,6 +22,7 @@ Ext.define('LawerAdminApp.controller.Deal', {
 
     onDealSelectionChanged: function ()
     {
+            var servicesTree = Ext.getStore('DealDetailsServices');
             var dealStore = Ext.getStore('LawerAdminApp.store.Deal');
             var lastSelected = Ext.getCmp('DealGrid').getSelectionModel().getLastSelected();
             if (!lastSelected)
@@ -40,6 +41,7 @@ Ext.define('LawerAdminApp.controller.Deal', {
             var dealDetails = Ext.getCmp('DealDetails');
             dealDetails.setTitle('Details of Deal#' + number + ' ' + description);
             this.setOneItemFilterAndLoadDataFor3Stores(dealId);
+            this.filterServicesTreeStoreUsingStoreBy(servicesTree, dealStore, 'id', dealId);
     }
 
 });
