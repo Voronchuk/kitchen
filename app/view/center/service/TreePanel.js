@@ -65,7 +65,7 @@ Ext.define('LawerAdminApp.view.center.service.TreePanel', {
                 dataIndex: 'price',
                 align: 'center',
                 tpl: me.SimpleColumnTemplateForTree('{price:this.format}'),
-            },
+            }
         ];
         Ext.apply(me, config);
         me.callParent(arguments);
@@ -78,14 +78,8 @@ Ext.define('LawerAdminApp.view.center.service.TreePanel', {
             {
                 format: function (v)
                 {
-                    if (v == '0')
-                    {
-                        return '';
-                    }
-                    else
-                    {
-                        return v;
-                    }
+                    if (v == '0') return '';
+                    else return v;
                 }
             }
         );
