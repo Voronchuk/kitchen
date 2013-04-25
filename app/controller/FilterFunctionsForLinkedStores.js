@@ -29,7 +29,7 @@ Ext.define('LawerAdminApp.controller.FilterFunctionsForLinkedStores', {
     {
         var StoreToFilter = Ext.getStore(StoreName);
         var Filter = Ext.getStore(FilterStore);
-        var Ids = [-1]; // default non existing value to filter all by 'nothing'
+        var Ids = []; // default non existing value to filter all by 'nothing'
         Filter.clearFilter();
         Filter.filterBy(function (record)
         {
@@ -43,6 +43,7 @@ Ext.define('LawerAdminApp.controller.FilterFunctionsForLinkedStores', {
         StoreToFilter.clearFilter();
         StoreToFilter.filterBy(function (record, recordId)
         {
+            if(Ids.length==0) return false;
             return Ids.indexOf(record.data.id) > -1;
         });
     },
@@ -83,7 +84,7 @@ Ext.define('LawerAdminApp.controller.FilterFunctionsForLinkedStores', {
     {
         var meMixin = this;
         idValues = meMixin.getServicesValuesFromStoreBy(FilterStore, IdName, idValue);
-        var newRoot = copyFilteredByIdsJSONObj(myServicesTree0,idValues);
+        var newRoot = copyFilteredByIdsJSONObj(myServicesTree0, idValues);
         treeStore.setRootNode(newRoot);
     },
 
@@ -104,5 +105,6 @@ Ext.define('LawerAdminApp.controller.FilterFunctionsForLinkedStores', {
         filter.clearFilter();
         return Ids;
     }
+
 });
 

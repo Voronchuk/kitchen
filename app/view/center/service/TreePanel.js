@@ -6,84 +6,96 @@ Ext.define('LawerAdminApp.view.center.service.TreePanel', {
 
     store: 'LawerAdminApp.store.ServicesTree',
 
+    mixins : ['LawerAdminApp.controller.AddDeletable'],
+
     rootVisible: false,
     lines: false,
     multiSelect: false,
     selType: 'treemodel',
 
-    plugins: [Ext.create('Ext.grid.plugin.CellEditing', {clicksToEdit: 1})],
+    plugins: [
+        rowEditingTree = Ext.create('Ext.grid.plugin.RowEditing', {
+            clicksToEdit: 1,
+            listeners: {
+                beforeedit: function(e, editor){
+                    var tpanel = Ext.getCmp('ServicesTree');
+                    var sm = tpanel.getSelectionModel();
+                    var node = sm.getSelection()[0];
+                    if(editor.field=='name')return true;
+                        return node.isLeaf();
+                }
+            }
+        })
+    ],
 
     tbar: [
         {
-            xtype: 'button',
             text: 'Add',
-            handler: function (){}
+            handler: function (){
+                this.up().up().addNewNode();
+            }
         },
         {
-            xtype: 'button',
             text: 'Delete',
-            handler: function (){}
+            handler: function (){
+                this.up().up().deleteTreeSelection();
+            }
         }
     ],
 
-    initComponent: function (config)
-    {
-        var me = this;
-        me.columns = [
-            {
-                text: 'Id',
-                flex: 1,
-                sortable: true,
-                dataIndex: 'id'
-            },
-            {
-                xtype: 'treecolumn',
-                text: 'Service',
-                flex: 4,
-                sortable: true,
-                dataIndex: 'name',
-                editor: {
-                    xtype: 'textfield',
-                    allowBlank: true
-                }
-            },
-            {
-                xtype: 'templatecolumn',
-                text: 'Sharing',
-                flex: 1,
-                sortable: true,
-                dataIndex: 'sharing',
-                align: 'center',
-                tpl: me.SimpleColumnTemplateForTree('{sharing:this.format}'),
+    columns: [
+        {
+            text: 'Id',
+            flex: 1,
+            sortable: true,
+            dataIndex: 'id'
+        },
+        {
+            xtype: 'treecolumn',
+            text: 'Service',
+            flex: 4,
+            sortable: true,
+            dataIndex: 'name',
+            editor: {
+                xtype: 'textfield',
+                allowBlank: true
             }
-            ,
-            {
-                xtype: 'templatecolumn',
-                text: 'Price',
-                flex: 1,
-                sortable: true,
-                dataIndex: 'price',
-                align: 'center',
-                tpl: me.SimpleColumnTemplateForTree('{price:this.format}'),
-            }
-        ];
-        Ext.apply(me, config);
-        me.callParent(arguments);
-    },
+        },
+        {
+            xtype: 'templatecolumn',
+            text: 'Sharing',
+            width: 100,
+            sortable: true,
+            dataIndex: 'sharing',
+            align: 'center',
+            tpl: SimpleColumnTemplateForTree('{sharing:this.format}'),
+            editor: {
+                xtype: 'numberfield',
+                allowBlank: false,
+                minValue: 0,
+                maxValue: 100,
+                width: 100,
 
-    SimpleColumnTemplateForTree: function (dataIndex_FormatFunctionName)
-    {
-        return Ext.create('Ext.XTemplate',
-            dataIndex_FormatFunctionName,
-            {
-                format: function (v)
-                {
-                    if (v == '0') return '';
-                    else return v;
-                }
             }
-        );
-    }
+        }
+        ,
+        {
+            xtype: 'templatecolumn',
+            text: 'Price',
+            width: 100,
+            sortable: true,
+            dataIndex: 'price',
+            align: 'center',
+            tpl: SimpleColumnTemplateForTree('{price:this.format}'),
+            editor: {
+                xtype: 'numberfield',
+                allowBlank: false,
+                minValue: 0,
+                maxValue: 100000,
+                width: 100
+            }
+        }
+    ]
 
 })
 

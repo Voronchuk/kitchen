@@ -9,7 +9,7 @@ Ext.define('LawerAdminApp.view.center.service.Details', {
     items: [
         {
             xtype: 'grid',
-            title: 'Service Lawer',
+            title: 'Lawyers Queries for Services',
 
             columns: [
                 {
@@ -41,7 +41,7 @@ Ext.define('LawerAdminApp.view.center.service.Details', {
         },
         {
             xtype: 'grid',
-            title: 'Service All Lawer',
+            title: 'Service Lawyer',
 
             columns: [
                 {

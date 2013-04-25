@@ -1,3 +1,18 @@
+SimpleColumnTemplateForTree = function (dataIndex_FormatFunctionName)
+{
+    return Ext.create('Ext.XTemplate',
+        dataIndex_FormatFunctionName,
+        {
+            format: function (v)
+            {
+                if (v == '0') return '';
+                else return v;
+            }
+        }
+    );
+}
+
+
 var maxLevelPrintData = 1;
 
 simpleObjInspect = function (oObj, key, tabLvl)
@@ -70,6 +85,7 @@ copyFilteredByIdsJSONObj = function (dupeObj, IdValues)
     var ind;
     var objInd;
     var child;
+    if(IdValues.length==0) return copyJSONObj(myEmptyTree0);
     if (typeof(dupeObj) == 'string')
     {
         return '' + dupeObj;
@@ -193,6 +209,11 @@ copyJSONObj = function (dupeObj)
     return retObj;
 }
 
+
+myEmptyTree0 = {
+    'id': 'root',
+    'children':[]
+}
 
 myServicesTree0 = {
     'id': 'root',
@@ -341,6 +362,7 @@ var myLawerServicesTree;
 var myLawerAllServicesTree;
 var myClientServicesTree;
 var myDealServicesTree;
+
 
 clearAndInitAllServiceTreeStores = function ()
 {

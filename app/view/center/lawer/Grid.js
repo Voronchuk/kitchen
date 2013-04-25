@@ -2,25 +2,23 @@ Ext.define('LawerAdminApp.view.center.lawer.Grid', {
 
     extend: 'Ext.grid.Panel',
     alias: 'widget.lawergrid',
-    title: 'Lawers',
+    title: 'Lawyers',
 
     mixins : ['LawerAdminApp.controller.AddDeletable'],
 
     store: 'LawerAdminApp.store.Lawer',
 
-    plugins: [Ext.create('Ext.grid.plugin.CellEditing', {clicksToEdit: 1})],
+    plugins: [rowEditingLawer = Ext.create('Ext.grid.plugin.RowEditing', {clicksToEdit: 1})],
 
     tbar: [
         {
-            xtype: 'button',
             text: 'Add',
             handler: function ()
             {
-                this.up().up().addNew('LawerAdminApp.store.Lawer','LawerAdminApp.model.Lawer',myLawers.lawers)
+                this.up().up().addNew('LawerGrid', 'LawerAdminApp.store.Lawer','LawerAdminApp.model.Lawer', myLawers.lawers, rowEditingLawer)
             }
         },
         {
-            xtype: 'button',
             text: 'Delete',
             handler: function ()
             {

@@ -50,4 +50,5 @@ Ext.define('LawerAdminApp.controller.Lawer', {
         this.filterServicesTreeStoreUsingStoreBy(servicesTree, filterDeal, 'lawer_id', lawerId);
         this.filterServicesTreeStoreUsingStoreBy(allServicesTree, filterLawerService, 'lawer_id', lawerId);
     }
+
 });

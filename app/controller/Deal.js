@@ -41,7 +41,7 @@ Ext.define('LawerAdminApp.controller.Deal', {
             var dealDetails = Ext.getCmp('DealDetails');
             dealDetails.setTitle('Details of Deal#' + number + ' ' + description);
             this.setOneItemFilterAndLoadDataFor3Stores(dealId);
-        //    this.filterServicesTreeStoreUsingStoreBy(servicesTree, dealStore, 'id', dealId);
+            this.filterServicesTreeStoreUsingStoreBy(servicesTree, dealStore, 'id', dealId);
     }
 
 });

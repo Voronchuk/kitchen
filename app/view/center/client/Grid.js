@@ -8,19 +8,17 @@ Ext.define('LawerAdminApp.view.center.client.Grid', {
 
     store: 'LawerAdminApp.store.Client',
 
-    plugins: [Ext.create('Ext.grid.plugin.CellEditing', {clicksToEdit: 1})],
+    plugins: [rowEditingClient = Ext.create('Ext.grid.plugin.RowEditing', {clicksToEdit: 1})],
 
     tbar: [
         {
-            xtype: 'button',
             text: 'Add',
             handler: function ()
             {
-                this.up().up().addNew('LawerAdminApp.store.Client','LawerAdminApp.model.Client',myClients.clients)
+                this.up().up().addNew('ClientGrid', 'LawerAdminApp.store.Client','LawerAdminApp.model.Client', myClients.clients, rowEditingClient)
             }
         },
         {
-            xtype: 'button',
             text: 'Delete',
             handler: function ()
             {

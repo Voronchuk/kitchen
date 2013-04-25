@@ -2,7 +2,6 @@ Ext.define('LawerAdminApp.view.west.Panel', {
 
     extend: 'Ext.panel.Panel',
     alias: 'widget.startpanel',
-    title: 'Menu and Navigation',
 
     layout: {type: 'vbox', align: 'stretch'},
 
@@ -10,6 +9,7 @@ Ext.define('LawerAdminApp.view.west.Panel', {
     width: 200,
     minWidth: 175,
     maxWidth: 400,
+    header: false,
     collapsible: true,
     animCollapse: true,
     margins: '0 0 0 5',

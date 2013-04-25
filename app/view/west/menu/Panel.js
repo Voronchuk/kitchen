@@ -12,7 +12,7 @@ Ext.define('LawerAdminApp.view.west.menu.Panel', {
         expanded: true,
         children: [
             {
-                text: 'Lawers', id: '0', leaf: false,
+                text: 'Lawyers', id: '0', leaf: false,
                 children: [
                     {text: 'List', id: '0.0', leaf: true },
                     {text: 'Details', id: '0.1', leaf: true },

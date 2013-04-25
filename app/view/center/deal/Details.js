@@ -39,7 +39,7 @@ Ext.define('LawerAdminApp.view.center.deal.Details', {
         },
         {
             xtype: 'grid',
-            title: 'Responsible Lawer',
+            title: 'Responsible Lawyer',
 
             columns: [
                 {
@@ -91,23 +91,22 @@ Ext.define('LawerAdminApp.view.center.deal.Details', {
                     dataIndex: 'name'
                 },
                 {
-                    // xtype: 'templatecolumn',
+                    xtype: 'templatecolumn',
                     text: 'Sharing',
-                    flex: 1,
+                    width: 100,
                     sortable: true,
                     dataIndex: 'sharing',
                     align: 'center',
-                    // tpl: this.SimpleColumnTemplateForTree('{sharing:this.format}'),
-                }
-                ,
+                    tpl: SimpleColumnTemplateForTree('{sharing:this.format}'),
+                },
                 {
-                    //xtype: 'templatecolumn',
+                    xtype: 'templatecolumn',
                     text: 'Price',
-                    flex: 1,
+                    width: 100,
                     sortable: true,
                     dataIndex: 'price',
                     align: 'center',
-                    //   tpl:  this.SimpleColumnTemplateForTree('{price:this.format}'),
+                    tpl: SimpleColumnTemplateForTree('{price:this.format}'),
                 }
             ]
         }

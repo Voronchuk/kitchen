@@ -1,5 +1,5 @@
 var myDeals = {
-    "total":"26",
+    "total":"999",
     "deals":[
         {"id": "0",   "lawer_id": "0",    "client_id": "0",   "service_id": "0.0",    "start": "03/01/2012",    "end": "03/01/2012",  "status":"completed",   "cost":"100"  },
         {"id": "1",   "lawer_id": "1",    "client_id": "1",   "service_id": "0.1",    "start": "03/01/2012",    "end": "03/01/2012",  "status":"completed",   "cost":"0"  },

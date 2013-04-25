@@ -9,7 +9,7 @@ Ext.define('LawerAdminApp.view.center.lawer.Details', {
     items: [
         {
             xtype: 'grid',
-            title: 'Clients of Lawer',
+            title: 'Clients of Lawyer',
 
             columns: [
                 {
@@ -46,7 +46,7 @@ Ext.define('LawerAdminApp.view.center.lawer.Details', {
         },
         {
             xtype: 'grid',
-            title: 'Lawer Practice',
+            title: 'Lawyer Practice',
 
             columns: [
                 {
@@ -95,7 +95,7 @@ Ext.define('LawerAdminApp.view.center.lawer.Details', {
         },
         {
             xtype: 'treepanel',
-            title: 'Clients Queries for Services',
+            title: 'Lawyers Queries for Services',
 
             rootVisible: false,
             lines:false,
@@ -115,29 +115,28 @@ Ext.define('LawerAdminApp.view.center.lawer.Details', {
                     dataIndex: 'name'
                 },
                 {
-                    // xtype: 'templatecolumn',
+                    xtype: 'templatecolumn',
                     text: 'Sharing',
-                    flex: 1,
+                    width: 100,
                     sortable: true,
-                    // dataIndex: 'sharing',
+                    dataIndex: 'sharing',
                     align: 'center',
-                    // tpl: this.SimpleColumnTemplateForTree('{sharing:this.format}'),
-                }
-                ,
+                    tpl: SimpleColumnTemplateForTree('{sharing:this.format}'),
+                },
                 {
-                    //xtype: 'templatecolumn',
+                    xtype: 'templatecolumn',
                     text: 'Price',
-                    flex: 1,
+                    width: 100,
                     sortable: true,
-                    // dataIndex: 'price',
+                    dataIndex: 'price',
                     align: 'center',
-                    //   tpl:  this.SimpleColumnTemplateForTree('{price:this.format}'),
+                    tpl: SimpleColumnTemplateForTree('{price:this.format}'),
                 },
             ]
         },
         {
             xtype: 'treepanel',
-            title: 'this Lawer Services Tree',
+            title: 'Lawyer Services',
 
             rootVisible: false,
             lines:false,
@@ -157,23 +156,22 @@ Ext.define('LawerAdminApp.view.center.lawer.Details', {
                     dataIndex: 'name'
                 },
                 {
-                    // xtype: 'templatecolumn',
+                    xtype: 'templatecolumn',
                     text: 'Sharing',
-                    flex: 1,
+                    width: 100,
                     sortable: true,
                     dataIndex: 'sharing',
-                    align: 'center'
-                    // tpl: this.SimpleColumnTemplateForTree('{sharing:this.format}'),
-                }
-                ,
+                    align: 'center',
+                    tpl: SimpleColumnTemplateForTree('{sharing:this.format}'),
+                },
                 {
-                    //xtype: 'templatecolumn',
+                    xtype: 'templatecolumn',
                     text: 'Price',
-                    flex: 1,
+                    width: 100,
                     sortable: true,
                     dataIndex: 'price',
                     align: 'center',
-                    //   tpl:  this.SimpleColumnTemplateForTree('{price:this.format}'),
+                    tpl:  SimpleColumnTemplateForTree('{price:this.format}'),
                 }
             ]
         }

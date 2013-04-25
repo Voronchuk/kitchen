@@ -8,19 +8,17 @@ Ext.define('LawerAdminApp.view.center.deal.Grid', {
 
     store: 'LawerAdminApp.store.Deal',
 
-    plugins: [Ext.create('Ext.grid.plugin.CellEditing', {clicksToEdit: 1})],
+    plugins: [rowEditingDeal = Ext.create('Ext.grid.plugin.RowEditing', {clicksToEdit: 1})],
 
     tbar: [
         {
-            xtype: 'button',
             text: 'Add',
             handler: function ()
             {
-                this.up().up().addNew('LawerAdminApp.store.Deal','LawerAdminApp.model.Deal',myDeals.deals)
+                this.up().up().addNew('DealGrid', 'LawerAdminApp.store.Deal','LawerAdminApp.model.Deal', myDeals.deals, rowEditingDeal)
             }
         },
         {
-            xtype: 'button',
             text: 'Delete',
             handler: function ()
             {

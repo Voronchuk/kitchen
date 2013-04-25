@@ -1,5 +1,5 @@
 var myLawerServices = {
-    "total": "19",
+    "total": "999",
     "lawer_services": [
         {"id": "0",   "lawer_id": "0",     "service_id": "0.0"  },
         {"id": "1",   "lawer_id": "0",     "service_id": "0.2"  },

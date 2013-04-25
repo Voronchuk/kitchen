@@ -70,7 +70,7 @@ Ext.define('LawerAdminApp.view.center.communication.TabPanel', {
                     fieldLabel: 'Contacts',
                     name: 'contacts',
                     xtype: 'combo',
-                    displayField: 'nick',
+                    displayField: 'lastname',
                     maxWidth: '300',
                     queryMode: 'local',
                     store: 'LawerAdminApp.store.Lawer'

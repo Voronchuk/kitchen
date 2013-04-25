@@ -9,7 +9,7 @@ Ext.define('LawerAdminApp.view.center.client.Details', {
     items: [
         {
             xtype: 'grid',
-            title: 'Clients Lawers',
+            title: 'Clients Lawyers',
 
             columns: [
                 {
@@ -110,23 +110,23 @@ Ext.define('LawerAdminApp.view.center.client.Details', {
                     dataIndex: 'name'
                 },
                 {
-                    // xtype: 'templatecolumn',
+                    xtype: 'templatecolumn',
                     text: 'Sharing',
-                    flex: 1,
+                    width: 100,
                     sortable: true,
                     dataIndex: 'sharing',
                     align: 'center',
-                    // tpl: this.SimpleColumnTemplateForTree('{sharing:this.format}'),
+                    tpl: SimpleColumnTemplateForTree('{sharing:this.format}'),
                 }
                 ,
                 {
-                    //xtype: 'templatecolumn',
+                    xtype: 'templatecolumn',
                     text: 'Price',
                     flex: 1,
                     sortable: true,
                     dataIndex: 'price',
                     align: 'center',
-                    //   tpl:  this.SimpleColumnTemplateForTree('{price:this.format}'),
+                    tpl: SimpleColumnTemplateForTree('{price:this.format}'),
                 }
             ]
         }
